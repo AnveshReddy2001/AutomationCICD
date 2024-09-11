@@ -19,7 +19,7 @@ import rahulshettyacademy.TestComponents.BaseTest;
 public class StandAloneTest extends BaseTest {
 	String productName = "ZARA COAT 3";
 
-    @Test(dataProvider = "getData", groups = {"Purchase"})
+    @Test(dataProvider = "getData", groups = {"Purchase"}, retryAnalyzer = Retry.class)
     public void productPurchaseTest(HashMap<String,String> input) throws IOException, InterruptedException {
     	ProductCatalogue productCatalogue = landingpage.loginApplication(input.get("email"), input.get("password"));
 		List<WebElement> products = productCatalogue.getProductList();
