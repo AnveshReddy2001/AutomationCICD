@@ -32,18 +32,18 @@ import rahulshettyacademy.OrdersPage;
         
 
         public void waitForElementToAppear(By findBy) {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
             wait.until(ExpectedConditions.visibilityOfElementLocated(findBy));
         }
 
         public void waitForElementToAppear(WebElement findBy) {
-            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
             wait.until(ExpectedConditions.visibilityOf(findBy));
         }
 
         public void presenceOfWebElementToAppear(By locator) {
 
-    		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+    		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
     		wait.until(ExpectedConditions.presenceOfElementLocated(locator));
 
     	}
@@ -65,7 +65,7 @@ import rahulshettyacademy.OrdersPage;
         }
         public void waitForElementToDisappear(WebElement ele) throws InterruptedException
     	{
-    		Thread.sleep(3000);
+    		Thread.sleep(5000);
 //    		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(2));
 //    		wait.until(ExpectedConditions.invisibilityOf(ele));
 
