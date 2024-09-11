@@ -3,6 +3,7 @@ package rahulshettyacademy;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -46,14 +47,14 @@ public class CheckoutPage extends AbstractComponents {
 
     public ConfirmationPage submit1() {
         try {
-    WebElement element = driver.findElement(submit);
-    element.click();
-} catch (ElementClickInterceptedException e) {
-    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-    wait.until(ExpectedConditions.elementToBeClickable(submit));
-    WebElement element = driver.findElement(submit);
-    element.click();
-}
+    		    WebElement element = driver.findElement((By) submit);
+    		    element.click();
+    		} catch (ElementClickInterceptedException e) {
+    		    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+    		    wait.until(ExpectedConditions.elementToBeClickable(submit));
+    		    WebElement element = driver.findElement((By) submit);
+    		    element.click();
+    		}
         return new ConfirmationPage(driver);
     }
 }
