@@ -25,7 +25,7 @@ public class StandAloneTest extends BaseTest {
 		List<WebElement> products = productCatalogue.getProductList();
 	    productCatalogue.addProductToCart(input.get("productName"));
 		CartPage cp = productCatalogue.goToCartPage();
-        //Thread.sleep(3000);
+                Thread.sleep(3000);
 		Boolean match = cp.verifyProductDisplay(input.get("productName"));
 		Assert.assertTrue(match);
 		CheckoutPage checkoutPage = cp.goToCheckOut();
