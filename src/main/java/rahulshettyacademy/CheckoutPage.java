@@ -45,9 +45,15 @@ public class CheckoutPage extends AbstractComponents {
     }
 
     public ConfirmationPage submit1() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-    	WebElement element = wait.until(ExpectedConditions.elementToBeClickable(submit));
-    	element.click();
+        try {
+    WebElement element = driver.findElement(submit);
+    element.click();
+} catch (ElementClickInterceptedException e) {
+    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+    wait.until(ExpectedConditions.elementToBeClickable(submit));
+    WebElement element = driver.findElement(submit);
+    element.click();
+}
         return new ConfirmationPage(driver);
     }
 }
